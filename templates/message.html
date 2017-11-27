@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Message{% endblock title %}
+
+{% block page_content %}
+
+<p><strong>Author name:</strong> {{ message.author_name }}</p>
+<p><strong>Author email:</strong> {{ message.email }}</p>
+<p><strong>Message: </strong>{{ message.message }}</p>
+<p><strong>Date &amp; time: </strong>{{ message.created.strftime('%d %B %Y at %H:%M')}}</p>
+
+<a href="/message/{{message.key.id()}}/edit">Edit</a>
+<a href="/message/{{message.key.id()}}/delete">Delete</a>
+
+{% endblock page_content %}

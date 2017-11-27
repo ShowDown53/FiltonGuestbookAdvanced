@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block title %}Admin menu | Message list{% endblock title %}
+
+{% block page_content %}
+
+<h2>Deleted messages</h2>
+
+{% for message in messages %}
+<p>
+  <strong>{{ message.author_name }}</strong><br>
+  wrote:<br>
+  {{ message.message }}<br>
+  on {{ message.created.strftime('%d %B %Y at %H:%M') }}
+</p>
+<a href="/message/{{message.key.id()}}/restore">Restore</a>
+<a href="/message/{{message.key.id()}}/delete-permanently">Delete permanently</a>
+<br>
+<hr>
+{% else %}
+<p>No deleted messages yet.</p>
+{% endfor %}
+
+{% endblock page_content %}

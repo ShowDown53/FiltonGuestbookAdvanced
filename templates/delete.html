@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block title %}Delete message (not really){% endblock title %}
+
+{% block page_content %}
+<p>Are you sure you want to delete?</p>
+<form action="/message/{{message_id}}/delete" method="post">
+  <button type="submit">Yes</button>
+</form>
+
+<a href="/message/{{message_id}}">Back</a>
+{% endblock page_content %}
